@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  mongo:
+    image: mongo:4.2
+    command: mongod --port 37017
+    env_file:
+      - .env
+    volumes:
+      - type: bind
+        source: ${MONGO_FOLDER}/
+        target: /data/db
+    expose: ["37017"]
+    ports: ["37017:37017"]
